@@ -925,7 +925,7 @@ class AppController extends Controller
                         'limit' => 1
                     );
 
-                    $projects = $this->ProjectUser->query("SELECT DISTINCT Project.uniq_id,Project.name,Project.id,Project.default_assign FROM project_users AS ProjectUser,projects AS Project WHERE Project.id= ProjectUser.project_id AND ProjectUser.user_id=" . SES_ID . " AND Project.isactive='1' AND Project.company_id='" . SES_COMP . "' ORDER BY ProjectUser.dt_visited DESC LIMIT 0,1");
+                    $projects = $this->ProjectUser->query("SELECT DISTINCT Project.uniq_id,Project.name,Project.id,Project.default_assign,ProjectUser.dt_visited FROM project_users AS ProjectUser,projects AS Project WHERE Project.id= ProjectUser.project_id AND ProjectUser.user_id=" . SES_ID . " AND Project.isactive='1' AND Project.company_id='" . SES_COMP . "' ORDER BY ProjectUser.dt_visited DESC LIMIT 0,1");
 
                     if (count($projects)) {
                         $curProjId = $projects[0]['Project']['id'];

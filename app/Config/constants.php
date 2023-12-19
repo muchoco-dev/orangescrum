@@ -41,7 +41,9 @@
 define("TASK_GROUP_CASE_PAGE_LIMIT", 25);
 
 $ht = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? "https://" : "http://";
-define('PROTOCOL', $ht);
+//define('PROTOCOL', $ht);
+define('PROTOCOL', 'https://');
+
 
 if(stristr($_SERVER['SERVER_NAME'], '/') && substr($_SERVER['SERVER_NAME'], -1) == '/'){
 	define('DOMAIN', $_SERVER['SERVER_NAME']);
@@ -56,29 +58,29 @@ if(stristr(HTTP_SERVER, '/') && substr(HTTP_SERVER, -1) == '/' && SUB_FOLDER == 
 	define('HTTP_ROOT', HTTP_SERVER);
 	define('HTTP_APP', PROTOCOL . DOMAIN);
 	define('HTTPS_HOME', PROTOCOL . DOMAIN);
-	define('HTTP_HOME', "http://" . DOMAIN);
+	define('HTTP_HOME', "https://" . DOMAIN);
 }else{
 	define('HTTP_ROOT', HTTP_SERVER . SUB_FOLDER);
 	define('HTTP_APP', PROTOCOL . DOMAIN . SUB_FOLDER);
 	define('HTTPS_HOME', PROTOCOL . DOMAIN . SUB_FOLDER);
-	define('HTTP_HOME', "http://" . DOMAIN . SUB_FOLDER);
+	define('HTTP_HOME', "https://" . DOMAIN . SUB_FOLDER);
 }
+
 if($_SERVER['SERVER_NAME'] == 'localhost'){
 	define('DOMAIN_COOKIE', false);
 }else{
 	define('DOMAIN_COOKIE', $_SERVER['SERVER_NAME']);
 }
-
 /* SMTP credentials SET Ups Start*/
 
 //gmail SMTP
-define("SMTP_HOST", "smtp.gmail.com");
+define("SMTP_HOST", "smtp.sendgrid.net");
 define("SMTP_PORT", "587");
-define("SMTP_UNAME", "aya.yoshioka.1116@gmail.com");
-define("SMTP_PWORD", "fxhalatsuzjwvfye");
+define("SMTP_UNAME", "apikey");
+define("SMTP_PWORD", "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");
 define("SMTP_APIKEY", "");
 
-define("IS_SMTP", 0);
+define("IS_SMTP", 1);
 define("IS_EML_VERIFY", 0);
 define("IS_OTHERS", 1);
 //https://sendgrid.com/user/signup (free signup to sendgrid)
@@ -86,8 +88,8 @@ define("IS_OTHERS", 1);
 define('EMAIL_DELIVERY', 'smtp');
 
 //Most required settings start
-define("SUPPORT_EMAIL", "");
-define("FROM_EMAIL", "");
+define("SUPPORT_EMAIL", "pm@illubit.com");
+define("FROM_EMAIL", "pm@illubit.com");
 define("FROM_EMAIL_EC", "");
 
 //Send mail without smtp
@@ -101,7 +103,7 @@ define('EMAIL_SUBJC', 'Orangescrum');
 define('SITE_NAME', '');
 
 define("PDF_LIB_PATH", ""); ///usr/bin/wkhtmltopdf
-define('HTTP_ROOT_INVOICE', "http://" . $_SERVER['SERVER_NAME'] . "/" . SUB_FOLDER);
+define('HTTP_ROOT_INVOICE', "https://" . $_SERVER['SERVER_NAME'] . "/" . SUB_FOLDER);
 define('HTTP_INVOICE', HTTP_ROOT . 'invoice/');
 define('HTTP_INVOICE_PATH', WWW_ROOT . 'invoice' . DS);
 define('INVOICE_LOGO_PATH', WWW_ROOT . 'invoice-logo' . DS);
@@ -113,12 +115,12 @@ define("NODEJS_HOST", ''); //ex. http://localhost:3002
 define("NODEJS_HOST_CHAT", ''); // this is required for in-app chat
 
 ##################### Google Keys (Login, Drive, Contacts) ############################
-define("CLIENT_ID", "XXXXXXXXXXXX.apps.googleusercontent.com");
-define("CLIENT_ID_NUM", "XXXXXXXXXXXX");
-define("CLIENT_SECRET", "xXxXXxxxx_xXxXXxxxx");
-define("API_KEY", "xXxXXxxxxxXXXXXXXXXXXXXxXXxxxx");
+define("CLIENT_ID", "140979839921-cqfnvj8rcsu9vbrenuuermeqekukuj0v.apps.googleusercontent.com");
+define("CLIENT_ID_NUM", "140979839921");
+define("CLIENT_SECRET", "AIzaSyBeJcAoA3OcO0bWmK0uoejkTW4nd2GaecA");
+define("API_KEY", "AIzaSyBeJcAoA3OcO0bWmK0uoejkTW4nd2GaecA");
 define("REDIRECT_URI", HTTP_ROOT . "users/googleConnect");
-define("USE_GOOGLE", 0);
+define("USE_GOOGLE", 1);
 
 
 ##################### Dropbox Key ############################

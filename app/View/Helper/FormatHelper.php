@@ -19,9 +19,9 @@ class FormatHelper extends AppHelper {
 	function is_url_exist($url){
     $ch = curl_init($url);    
     curl_setopt($ch, CURLOPT_NOBODY, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_exec($ch);
     $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
     if($code == 200){
        $status = true;
     }else{

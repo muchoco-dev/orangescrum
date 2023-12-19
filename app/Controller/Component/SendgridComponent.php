@@ -79,8 +79,8 @@ class SendgridComponent extends EmailComponent
 			$email_array['username'] = SMTP_UNAME;
 			$email_array['password'] = SMTP_PWORD;
 			if (in_array(SMTP_HOST, $this->tls)) {
-                $email_array['tls'] = true;
-            }
+                		$email_array['tls'] = true;
+            		}
 		}
 		else {
 			$email_array = array(
@@ -91,10 +91,12 @@ class SendgridComponent extends EmailComponent
 		$email->smtpOptions = $email_array;
 		//$response = $email->send();
 		try{
-		$response = $email->send();
+			$response = $email->send();
+			var_dump($response);
 			$response = true;
 		} catch (Exception $e) {
-            if($chkpoint){
+			var_dump($e->getMessage());
+		        if($chkpoint){
 				return $e->getMessage();
 			}else{
 				$response = true;

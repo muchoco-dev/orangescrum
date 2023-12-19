@@ -83,12 +83,12 @@ Configure::write('PROJECT_FIELDS_LISTING', array("Project Name","Short Name","De
 
 
 define("PLAY_VIDEO_TEXT", 'Watch Video');
-define("CURRENT_FREE_PLAN", 11);
-define("CURRENT_EXPIRED_PLAN", 13);
-define("UPGRADE_PLAN", 16);
+if(!defined("CURRENT_FREE_PLAN")) define("CURRENT_FREE_PLAN", 11);
+if(!defined("CURRENT_EXPIRED_PLAN")) define("CURRENT_EXPIRED_PLAN", 13);
+if(!defined("UPGRADE_PLAN")) define("UPGRADE_PLAN", 16);
 if(date('Y-m-d H:i:s') >= '2020-11-12 11:50:00'){
-	define("FREE_TRIAL_PERIOD", 14);
-	define('TRIAL_DAY_TXT', 14);
+	if(!defined("FREE_TRIAL_PERIOD")) define("FREE_TRIAL_PERIOD", 14);
+	if(!defined('TRIAL_DAY_TXT')) define('TRIAL_DAY_TXT', 14);
 }else{
 	define("FREE_TRIAL_PERIOD", 45);
 	define('TRIAL_DAY_TXT', 45);
@@ -169,7 +169,7 @@ define('TASKLIST_CSV_PATH', CSV_PATH . 'tasks_csv' . DS);
 
 //Image Display path
 define('HTTP_IMAGES', HTTP_ROOT . 'img/');
-define('HTTP_FILES', HTTP_ROOT . 'files/');
+if(!defined('HTTP_FILES')) define('HTTP_FILES', HTTP_ROOT . 'files/');
 define('HTTP_CASE_FILES', HTTP_FILES . 'case_files/');
 define('HTTP_USER_PHOTOS', HTTP_FILES . 'photos/');
 define('HTTP_PROJECT_LOGO', HTTP_FILES . 'project_logo/');

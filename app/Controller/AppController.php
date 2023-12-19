@@ -148,7 +148,7 @@ class AppController extends Controller
         //$this->set("referrer_link",$referrer_link);
         $this->set("referrer_link", '');
 
-        //Excluding below functionality from ajax calls
+	//Excluding below functionality from ajax calls
         if (!strstr(PAGE_NAME, "ajaX") && !in_array($this->action, $ajax_action_exclude)) {
             foreach ($_GET as $key => $value) {
                 $_GET[$key] = strip_tags($value);

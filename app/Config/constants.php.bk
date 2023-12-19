@@ -49,7 +49,7 @@ if(stristr($_SERVER['SERVER_NAME'], '/') && substr($_SERVER['SERVER_NAME'], -1) 
 	define('DOMAIN', $_SERVER['SERVER_NAME'] . "/");
 }
 /*Subfolder set up */
-define('SUB_FOLDER', '@SUB_FOLDER');
+define('SUB_FOLDER', '/');
 
 define('HTTP_SERVER', PROTOCOL . DOMAIN);
 if(stristr(HTTP_SERVER, '/') && substr(HTTP_SERVER, -1) == '/' && SUB_FOLDER == '/'){
@@ -72,10 +72,10 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
 /* SMTP credentials SET Ups Start*/
 
 //gmail SMTP
-define("SMTP_HOST", "smtp.sendgrid.net");
+define("SMTP_HOST", "smtp.gmail.com");
 define("SMTP_PORT", "587");
-define("SMTP_UNAME", "apikey");
-define("SMTP_PWORD", "your_password");
+define("SMTP_UNAME", "aya.yoshioka.1116@gmail.com");
+define("SMTP_PWORD", "fxhalatsuzjwvfye");
 define("SMTP_APIKEY", "");
 
 define("IS_SMTP", 0);
@@ -95,7 +95,7 @@ define("PHPMAILER", 0);
 
 /* SMTP credentials SET Ups end*/
 
-define("WEB_DOMAIN", "YourDomain.com"); //ex. demo.orangescrum.com
+define("WEB_DOMAIN", "pm.illubit.com"); //ex. demo.orangescrum.com
 define('EMAIL_SUBJ', '[Orangescrum]');
 define('EMAIL_SUBJC', 'Orangescrum');
 define('SITE_NAME', '');
@@ -184,3 +184,4 @@ define('DIR_CASE_FILES_EDITOR_S3_FOLDER', 'files/case_editor_files/');
 define('DIR_CASE_EDITOR_FILES', WWW_ROOT.'files'.DS .'case_files/case_editor_files/');
 
 define('GITHUB_LINK', 'https://github.com/Orangescrum/orangescrum/issues');
+

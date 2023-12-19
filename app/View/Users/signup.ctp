@@ -372,7 +372,8 @@ function validateForm() {
                 var contact_phone = '';
                 var timezone_id = $("#timezone_id").val().trim();
 
-                $.post(strURL+"users/register_user",{"plan_id":escape(plan_id),"name":escape(name),"last_name":escape(last_name),"company":escape(company),"seo_url":escape(seo_url),"email":escape(email),"password":escape(password),"industry_id":industry,"new_industry" : new_industry, 'contact_phone':escape(contact_phone),'timezone_id':escape(timezone_id),'is_agree':is_agree},function(data) {
+		$.post(strURL+"users/register_user",{"plan_id":escape(plan_id),"name":escape(name),"last_name":escape(last_name),"company":escape(company),"seo_url":escape(seo_url),"email":escape(email),"password":escape(password),"industry_id":industry,"new_industry" : new_industry, 'contact_phone':escape(contact_phone),'timezone_id':escape(timezone_id),'is_agree':is_agree},function(data) {
+			console.log(data);
                          var msg = jQuery.parseJSON(data);
                          if(msg.loggedin == 'loggedin'){						
 													 window.location=HTTP_APP+"users/login";

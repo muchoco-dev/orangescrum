@@ -848,7 +848,7 @@ class ProjectsController extends AppController
             $ProjectMeta=array();
             $ProjectMeta = $this->ProjectMeta->find('first', array('conditions' => array('ProjectMeta.project_id' => $project_id)));
             $update_prjAllArr[$pkey]['ProjectMeta']=$ProjectMeta;
-                $project_progress_details = $this->Easycase->query('SELECT legend, count(legend) as cnt FROM `easycases` WHERE `project_id`=' . $pval['Project']['id'] . ' AND `istype`=1 AND `isactive`=1 GROUP BY legend ORDER BY id DESC');
+                $project_progress_details = $this->Easycase->query('SELECT legend, count(legend) as cnt FROM `easycases` WHERE `project_id`=' . $pval['Project']['id'] . ' AND `istype`=1 AND `isactive`=1 GROUP BY legend');
             if ($project_progress_details) {
                 $complt = 0;
                 $not_complt = 0;
@@ -1563,7 +1563,8 @@ class ProjectsController extends AppController
                 $postProjectstatus_group_id = $stsg['StatusGroup']['id'];
 
                 $postProject['Project']['status_group_id'] = $this->createAssociatedWorkFlow($postProjectstatus_group_id, $postProject['Project']['short_name']);
-            }
+	    }
+	    if (!isset($postProject['Project']['logo'])) $postProject['Project']['logo'] = '';
             if ($this->Project->saveAll($postProject)) {
                 $prjid = $this->Project->getLastInsertID();
                     

@@ -33,13 +33,13 @@ var rsrch = "";
 					    <?php /*<div class="loader_dv" style="display: block;"><center><img src="<?php echo HTTP_IMAGES; ?>images/case_loader2.gif" alt="Loading..." title="Loading..." /></center></div> */?>
 						<div class="dtbl" target="javascript:void(0)">
 							<div class="dtbl_cel">
-								<img class="provider-icon os-provider-icon" alt="os logo" src="<?php echo HTTP_ROOT;?>img/github/orangescrum-64.png">
+								<!-- <img class="provider-icon os-provider-icon" alt="os logo" src="<?php echo HTTP_ROOT;?>img/github/orangescrum-64.png"> -->
 							</div>
 							<div class="dtbl_cel">
 								<h5><?php echo __('Syncing');?>..</h5>
 							</div>
 							<div class="dtbl_cel">
-								<img class="provider-icon os-provider-icon" alt="git logo" src="<?php echo HTTP_ROOT;?>img/github/git-64.png">
+								<!-- <img class="provider-icon os-provider-icon" alt="git logo" src="<?php echo HTTP_ROOT;?>img/github/git-64.png"> -->
 							</div>
 						</div>
 						<p class="note_hnt">

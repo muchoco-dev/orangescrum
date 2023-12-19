@@ -96,7 +96,7 @@ if(!empty($_REQUEST['is_others']) && $_REQUEST['is_others']==1 ){
    sleep(4);
    header('Location:'.$actual_link);exit;
 }
- $check_constants_filename = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'constants.php';
+$check_constants_filename = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'constants.php';
  $check_file = fopen($check_constants_filename, "a+");
   while (!feof($check_file)) {
     $check_line = fgets($check_file);

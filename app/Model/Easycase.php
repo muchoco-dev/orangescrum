@@ -4290,7 +4290,8 @@ class Easycase extends AppModel
         $easycase['user_id'] = $user_id;
         $easycase['priority'] = 1; //Medium as default
         $easycase['uniq_id'] = $format->generateUniqNumber();
-        $easycase['isactive'] = 1;
+	$easycase['isactive'] = 1;
+	$easycase['case_count'] = 0;
         $this->create();
         if ($this->save($easycase)) {
             $current_id = $this->getLastInsertID();

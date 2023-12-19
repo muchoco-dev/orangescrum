@@ -52,10 +52,10 @@
 				</ul>
 				<div class="app-link-btn">
 				  <a href="https://itunes.apple.com/ph/app/id1132539893" target="_blank">
-					<img src="<?php echo HTTP_ROOT.'img/home/app-store.png'; ?>">
+					<img src="<?php echo HTTP_ROOT.'images/app-store.png'; ?>">
 				  </a>
 				  <a href="https://play.google.com/store/apps/details?id=com.andolasoft.orangescrum&hl=en" target="_blank">
-					<img src="<?php echo HTTP_ROOT.'img/home/google-play.png'; ?>">
+					<img src="<?php echo HTTP_ROOT.'images/google-play.png'; ?>">
 				  </a>
 				</div>
 			  </div>

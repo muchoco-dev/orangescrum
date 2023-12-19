@@ -1866,7 +1866,11 @@ class UsersController extends AppController {
 
 			if($totUser){
 				$checkuids = Hash::extract($userArr, '{n}.User.id');
-				$getCompany_count = $CompanyUser->query('SELECT count(user_id) as cnt,company_id,user_id FROM company_users as CompanyUser where user_id in('.implode(',',$checkuids).') GROUP BY user_id having cnt>1');
+				$getCompany_count = $CompanyUser->query('SELECT count(user_id) as cnt,user_id FROM company_users as CompanyUser where user_id in('.implode(',',$checkuids).') GROUP BY user_id having cnt>1');
+				foreach ($getCompany_count as $key => $value) {
+					$result = $CompanyUser->query('SELECT company_id FROM company_users as CompanyUser where user_id ='.$getCompany_count[$key]['CompayUser']['user_id']. ' limit 1 ');
+					$getCompany_count[$key]['CompanyUser']['company_id'] = $result;
+				}
 				$getCompany_count = Hash::extract($getCompany_count, '{n}.CompanyUser.user_id');
 			}
 			#pr($getCompany_count);exit;
@@ -3418,7 +3422,7 @@ class UsersController extends AppController {
 							if(defined('SHOW_LESS_INFO') && CMP_CREATED <= SHOW_LESS_INFO){
 						$allProjArr = $ProjectUser->query("select SQL_CALC_FOUND_ROWS p.name,p.id,p.uniq_id as uniq_id,p.project_methodology_id,(select count(ec.id) from easycases as ec where ec.istype='1' AND ec.isactive='1' AND " . $clt_sql . " AND pu.project_id=ec.project_id " . trim($qry) .$restrictedQuery. ") as count from projects as p, project_users as pu where p.id=pu.project_id and pu.user_id='" . SES_ID . "' and p.company_id='" . SES_COMP . "' and p.company_id=pu.company_id AND p.isactive='1' $methodology_cond  ORDER BY pu.dt_visited DESC LIMIT 0,$limit");		
 							}else{							
-								$allProjArr = $ProjectUser->query("select SQL_CALC_FOUND_ROWS DISTINCT p.name,p.id,p.uniq_id as uniq_id,p.project_methodology_id from projects as p, project_users as pu where p.id=pu.project_id and pu.user_id='" . SES_ID . "' and p.company_id='" . SES_COMP . "' and p.company_id=pu.company_id AND p.isactive='1' $methodology_cond  ORDER BY pu.dt_visited DESC LIMIT 0,$limit");
+								$allProjArr = $ProjectUser->query("select SQL_CALC_FOUND_ROWS DISTINCT p.name,p.id,p.uniq_id as uniq_id,p.project_methodology_id,pu.dt_visited from projects as p, project_users as pu where p.id=pu.project_id and pu.user_id='" . SES_ID . "' and p.company_id='" . SES_COMP . "' and p.company_id=pu.company_id AND p.isactive='1' $methodology_cond  ORDER BY pu.dt_visited DESC LIMIT 0,$limit");
 							}
             } else {
 							if(defined('SHOW_LESS_INFO') && CMP_CREATED <= SHOW_LESS_INFO){

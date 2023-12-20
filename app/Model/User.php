@@ -15,7 +15,7 @@ class User extends AppModel {
         )
     );
 
-    function afterSave($created) {
+    function afterSave($created, $options = array()) {
 	    if($created) {
 	      $Menu = ClassRegistry::init('Menu');  
 	      $UserMenu = ClassRegistry::init('UserMenu'); 

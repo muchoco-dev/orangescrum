@@ -529,7 +529,9 @@ class PostcaseComponent extends CookieComponent
                 $availableFlag=true;
             }
         }
-        $postParam['Easycase']['message'] = str_replace('\\', '&#92;', $postParam['Easycase']['message']); // keep the "\" as it is.
+	$postParam['Easycase']['message'] = str_replace('\\', '&#92;', $postParam['Easycase']['message']); // keep the "\" as it is.
+	if(!isset($postParam['Easycase']['case_count'])) $postParam['Easycase']['case_count'] = 0;
+	if(!isset($postParam['Easycase']['updated_by'])) $postParam['Easycase']['updated_by'] = 0;
         if ($Easycase->saveAll($postParam)) {
             if (!empty($checkList) && !empty($checkListSts) && $caseIstype == 1) {
                 //add update checklist here

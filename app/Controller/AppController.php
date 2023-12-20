@@ -114,7 +114,7 @@ class AppController extends Controller
             if (!$_COOKIE['user_uniq_agent']) {
                 $this->User->keepPassChk($t_uid);
             }
-            if (!strstr(PAGE_NAME, "ajaX") && !in_array($this->action, $ajax_action_exclude)) {
+            if ((!defined('PAGE_NAME') || !strstr(PAGE_NAME, "ajaX")) && !in_array($this->action, $ajax_action_exclude)) {
                 $this->LoadModel('OsSessionLog');
                 $existing_ses = $this->OsSessionLog->getUserDetls($t_uid);
                 if ($existing_ses) {
@@ -1505,7 +1505,7 @@ class AppController extends Controller
             unlink(WWW_ROOT . 'error.check');
         }
         /*         * ****New Code Added if more active tabs then check only 3  *********** */
-        if (SES_ID && ACT_TAB_ID && ACT_TAB_ID > 1) {
+        if (SES_ID && defined('ACT_TAB_ID') && ACT_TAB_ID && ACT_TAB_ID > 1) {
             $tablists_check = Configure::read('DTAB');
             $s = 0;
             $checkIteraton = 1;

@@ -1093,6 +1093,7 @@ function setSessionStorage(StorageRefer, StorageEvent){
 }
 
 function trackEventLeadTracker(event_name, eventRefer, email_id){
+	return true;
 	<?php if(stristr($_SERVER['SERVER_NAME'],"payzilla.in")){ ?>
 		/* userpanda_customevents(eventRefer,
 		{"refrer": event_name, "email":email_id}); */

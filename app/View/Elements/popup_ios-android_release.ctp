@@ -22,7 +22,7 @@
 			<button style="min-width:24px; padding: 0px; opacity: 0.2; float: right; background: transparent none repeat scroll 0px 0px; border: 0px none; line-height: 1px; margin:5px; " type="button" class="close close-icon" data-dismiss="modal" onclick="closeMobilepop();"><i class="material-icons">&#xE14C;</i></button>
            <div class="app_release_pop">
 			  <div class="lft-cont">
-				<img src="<?php echo HTTP_ROOT.'img/home/app-phone.png'; ?>" width="" height="" alt="apps">
+				<img src="<?php echo HTTP_ROOT.'images/app-store.png'; ?>" width="" height="" alt="apps">
 			  </div>
 			  <div class="rht-cont">
 				<h2><?php echo __('Orangescrum goes Mobile');?>!</h2>

@@ -3160,7 +3160,15 @@ class UsersController extends AppController {
     }
 
     function newInviteUserProcess($data, $type, $more = null, $pids = null) {
-        $uArray = array();
+	$uArray = array();
+
+	// default
+	$uArray['User']['update_email'] = '';
+	$uArray['User']['update_random'] = '';
+	$uArray['User']['name'] = '';
+	$uArray['User']['google_id'] = '';
+	$uArray['User']['sig'] = '';
+
         $this->loadModel('ProjectUser');
 
         if ($pids) {
@@ -3229,7 +3237,7 @@ class UsersController extends AppController {
             // no user		    
             //$qstr = $this->request->data['User']['qstr'];
 							$uArray['User']['keep_hover_effect'] = 15;
-        }
+	}
         if ($more) {
             $this->User->saveAll($uArray);
         } else {

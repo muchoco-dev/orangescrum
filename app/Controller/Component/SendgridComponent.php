@@ -92,10 +92,10 @@ class SendgridComponent extends EmailComponent
 		//$response = $email->send();
 		try{
 			$response = $email->send();
-			var_dump($response);
+			//var_dump($response);
 			$response = true;
 		} catch (Exception $e) {
-			var_dump($e->getMessage());
+			//var_dump($e->getMessage());
 		        if($chkpoint){
 				return $e->getMessage();
 			}else{

@@ -155,6 +155,7 @@ echo $this->Html->script('jquery.bxslider.min');
 <![endif]-->
 <script language="javascript" type="text/javascript">
 function trackEventLeadTrackerGetting(event_name, eventRefer, email_id){
+	return true;
 	$.post("<?php echo LDTRACK_URL; ?>users/saveeventtrack",
 	{
 		'event_name': event_name,

@@ -10778,3 +10778,7 @@ msgstr ""
 #: webroot/test.php:107
 msgid "Debug setting does not allow access to this url."
 msgstr ""
+
+#: app/View/Elements/case_reply.ctp:84 
+msgid "Hide to client"
+msgstr ""

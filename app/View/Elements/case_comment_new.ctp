@@ -192,7 +192,7 @@
 											<div class="col-lg-7 col-sm-7 col-xs-7 padlft-non notify_email blank_red-tag">
 												<div id="clientdiv_dtl<%= csAtId %>" class="checkbox">
 													<label class="mb-15">
-														<input type="checkbox" name="chk_all" id="make_client_dtl<%= csAtId %>" value="0" onclick="chk_client_reply(<%= csAtId %>);"
+														<input type="checkbox" name="chk_all" id="make_client_dtl<%= csAtId %>" value="0" checked onclick="chk_client_reply(<%= csAtId %>);"
 														/>
 														<?php echo __('Do not show this comment to the client');?>&nbsp;
 														<?php /*<a href="javascript:void(0);" class="onboard_help_anchor" onclick="openHelpWindow('https://helpdesk.orangescrum.com/knowledge-base/how-to-create-a-new-task/#don\'t_show_task_to_client');" title="<?php echo __("Get quick help on Don't show the task to client");?>" rel="tooltip" ><span class="help-icon"></span></a> */ ?>

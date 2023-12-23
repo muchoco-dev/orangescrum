@@ -1,9 +1,14 @@
+<style>
+.private, .task_details_popup .comments_list .private .commentor_name {
+	background-color: #fcf8e3;
+}
+</style>
 <?php
 	$t_clr = Configure::read('PROFILE_BG_CLR'); 
 	$random_bgclr = $t_clr[array_rand($t_clr,1)];
 ?>
 <%
-var users_colrs = {"clr1":"#AB47BC;","clr2":"#455A64;","clr3":"#5C6BC0;","clr4":"#512DA8;","clr5":"#004D40;","clr6":"#EB4A3C;","clr7":"#ace1ad;","clr8":"#ffe999;","clr9":"#ffa080;","clr10":"#b5b8ea;",};
+var users_colrs = {"clr1":"#AB47BC;","clr2":"#455A64;","clr3":"#5C6BC0;","clr4":"#512DA8;","clr5":"#004D40;","clr6":"#EB4A3C;","clr7":"#e28cca;","clr8":"#977d20;","clr9":"#ffa080;","clr10":"#4e56d9;",};
 var total_records = sqlcasedata.length;
 var totdata = 0;
 var last_tot_rep = parseInt($('#lastTotReplies-lst').val());
@@ -22,6 +27,7 @@ if(typeof thrdStOrd == 'undefined' || !thrdStOrd) {
 		var thrdStOrd = 'ASC';
 	}
 }
+console.log(sqlcasedata);
 for(var repKey in sqlcasedata){
 	var getdata = sqlcasedata[repKey];
 	totdata--; i++;
@@ -41,6 +47,7 @@ for(var repKey in sqlcasedata){
 	var photo_exist = userArr.User.photo_exist;
 	var photo_existBg = userArr.User.photo_existBg;
 	var CSrep_count = getdata.Easycase.CSrep_count;
+	var hide_client = getdata.Easycase.client_status;
 	if(!photo_exist){	
 		by_photo = 'user.png'; 
 		var usr_name_fst = by_name.charAt(0);	
@@ -57,7 +64,7 @@ for(var repKey in sqlcasedata){
             }
 	} %>
     <% if((wrap_msg.length > 0) || (getdata.Easycase.replyCap.length > 0) || (getdata.Easycase.rply_files.length > 0)){ %>
-        <div class="comments_item user-task-info details_task_block <% if((startSlno)%2 == 0) {%>content2 <% }else{ %> content4 <% } %> <% if(getdata.Easycase.user_id != SES_ID) {%>replay_task_detail_blk <% } %>" id="rep<%= totdata %>"> 
+        <div class="comments_item user-task-info details_task_block <% if((startSlno)%2 == 0) {%>content2 <% }else{ %> content4 <% } %> <% if(getdata.Easycase.user_id != SES_ID) {%>replay_task_detail_blk <% } %> <% if(hide_client === '1') {%>private<% } %>" id="rep<%= totdata %>"> 
 			<div class="user-task-pf commenter-img">
 				<?php /*<div class="counter_badge"><%= startSlno%></div> */?>
 				<% if(!photo_exist){ %>
@@ -74,7 +81,7 @@ for(var repKey in sqlcasedata){
 						</p>
 						<p class="replay_time ml-auto">
 							<?php /*<small class="blue-txt"><% if(getdata.Easycase.sts =='<b class="wip"><?php echo __('In Progress');?></b>'){%> <?php echo __('Replied');?><%}else if(getdata.Easycase.sts =='<b class="wip"><?php echo __('Close');?></b>'){ %><?php echo __('Closed');?><% }else if(getdata.Easycase.sts =='<b class="wip">Resolve</b>'){%><?php echo __('Resolved');?><%}else if(getdata.Easycase.replyCap == "<?php echo __('Added time log');?>" || getdata.Easycase.replyCap == "<?php echo __('Updated time log');?>"){%><?php echo __('Modified');?><%}else{%><?php echo __('Replied');?><%}%></small> */?>
-							
+							<% if(hide_client === '1') { %><span class="badge mr-10"><?php echo __('Hide to client'); ?></span><% } %>
 							<span class="font-size-12"><%= getdata.Easycase.rply_dt %></span>
 						</p>
 			</div>
